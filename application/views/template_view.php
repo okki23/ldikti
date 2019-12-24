@@ -14,32 +14,36 @@
 
     <!-- Bootstrap Core Css -->
     <link href="<?php echo base_url(); ?>assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
- 
+  
     <!-- Waves Effect Css -->
     <link href="<?php echo base_url(); ?>assets/plugins/node-waves/waves.css" rel="stylesheet" />
 
     <link href="<?php echo base_url(); ?>assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
-     
+ 
+
     <!-- Animation Css -->
     <link href="<?php echo base_url(); ?>assets/plugins/animate-css/animate.css" rel="stylesheet" />
-    
+   
     <!-- JQuery DataTable Css -->
     <link href="<?php echo base_url(); ?>assets/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
 
     <!-- Custom Css -->
     <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
  
-   <!--  <link href="<?php echo base_url(); ?>assets/css/orgchart.css" rel="stylesheet"> -->
+ 
+   <!--  <link href="<?php echo base_url(); ?>assets/css/orgchart.css" rel="stylesheet"> --> 
     <link href="<?php echo base_url(); ?>assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="<?php echo base_url(); ?>assets/css/themes/all-themes.css" rel="stylesheet" />
-	
-	<link href="<?php echo base_url(); ?>assets/css/card_custom.css" rel="stylesheet" />
-    
+ 
+
+    <link href="<?php echo base_url(); ?>assets/css/card_custom.css" rel="stylesheet" />
+
     <!-- Jquery Core Js -->
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
-   <!--  <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
+    <!--  <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
+ 
     <script src="<?php echo base_url(); ?>assets/plugins/jquery/jput.min.js"></script> -->
 
     <!-- Bootstrap Core Js -->
@@ -67,34 +71,24 @@
     <script src="<?php echo base_url(); ?>js/buttons.print.min.js"></script>
     <script src="<?php echo base_url(); ?>js/buttons.colVis.min.js"></script>
     <script src="<?php echo base_url(); ?>js/filterDropDown.js"></script>
-
  
-
-    
     <script src="<?php echo base_url(); ?>assets/js/dataTables.rowsGroup.js"></script>
-    <script src="<?php echo base_url(); ?>assets/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script> 
-
-  
+    <script src="<?php echo base_url(); ?>assets/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
 
     <!-- Custom Js -->
     <script src="<?php echo base_url(); ?>assets/js/admin.js"></script>
-   
-    <script src="<?php echo base_url(); ?>assets/js/bootstrap-notify.js"></script> 
- 
+
+    <script src="<?php echo base_url(); ?>assets/js/bootstrap-notify.js"></script>
+
     <script src="<?php echo base_url(); ?>assets/plugins/autosize/autosize.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/pages/ui/notifications.js"></script>
     <script src="<?php echo base_url(); ?>assets/plugins/momentjs/moment.js"></script>
-    <script src="<?php echo base_url(); ?>assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>   
+    <script src="<?php echo base_url(); ?>assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/demo.js"></script>
-  
- 
+
     <script src="<?php echo base_url(); ?>assets/plugins/jquery-validation/jquery.validate.js"></script>
-  
 
  
-
-  
-	 
 </head>
 
 <body class="theme-red">
@@ -118,8 +112,8 @@
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
-    <!-- Search Bar -->
-     
+    <!-- Search Bar --> 
+      
     <!-- #END# Search Bar -->
     <!-- Top Bar -->
     <nav class="navbar">
@@ -131,9 +125,11 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                     
-                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true">    <i class="material-icons">person</i>   </a></li>
-                   
+ 
+
+                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"> <i class="material-icons">person</i> </a></li>
+
+ 
                 </ul>
             </div>
         </div>
@@ -142,147 +138,221 @@
     <section>
         <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar">
-            <!-- User Info -->
-            
+ 
+
             <!-- #User Info -->
             <!-- Menu -->
             <div class="menu">
-                
-                    <ul class="list">
+
+                <ul class="list">
                     <li>
                         <a href="<?php echo base_url('dashboard'); ?>">
                             <i class="material-icons">home</i>
-                            <span>Home  </span>
+                            <span>Home </span>
                         </a>
-                    </li> 
-                    <li class="header">Master</li> 
-                      <li>
+                    </li>
+                    <li class="header">Master</li>
+                    <li>
+ 
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">dns</i>
                             <span>Master</span>
                         </a>
                         <ul class="ml-menu">
-                    <li>
-                        <a href="<?php echo base_url('direktur'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Direktur</span>
-                        </a>
-                    </li> 
-                    <li>
-                        <a href="<?php echo base_url('direktorat'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Direktorat</span>
-                        </a>
-                    </li> 
-                    <li>
-                        <a href="<?php echo base_url('divisi'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Divisi</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url('departemen'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Departemen</span>
-                        </a>
-                    </li> 
-                    <li>
-                        <a href="<?php echo base_url('seksi'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Seksi</span>
-                        </a>
-                    </li> 
-                    <li>
-                        <a href="<?php echo base_url('kelas_jabatan'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Kelas Jabatan</span>
-                        </a>
-                    </li>
-                     <li>
-                        <a href="<?php echo base_url('kelompok_jabatan'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Kelompok Jabatan</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url('lokasi'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Lokasi</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url('karyawan'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Karyawan</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url('formasi_jabatan'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>Formasi Jabatan</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url('user'); ?>">
-                           <i class="material-icons">dns</i>
-                            <span>User</span>
-                        </a>
-                    </li>
-                    
+ 
+                            <li>
+                                <a href="<?php echo base_url('direktur'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Direktur</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('direktorat'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Direktorat</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('divisi'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Divisi</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('departemen'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Departemen</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('seksi'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Seksi</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('kelas_jabatan'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Kelas Jabatan</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('kelompok_jabatan'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Kelompok Jabatan</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('lokasi'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Lokasi</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('karyawan'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Karyawan</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('formasi_jabatan'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Formasi Jabatan</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('user'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>User</span>
+                                </a>
+                            </li>
+
                         </ul>
                     </li>
-                    
-                     
-                    
-                    
+
+                    <li class="header">Transaksi</li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">dns</i>
+                            <span>Transaksi</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?php echo base_url('direktur'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Direktur</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('direktorat'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Direktorat</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('divisi'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Divisi</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('departemen'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Departemen</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('seksi'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Seksi</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('kelas_jabatan'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Kelas Jabatan</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('kelompok_jabatan'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Kelompok Jabatan</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('lokasi'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Lokasi</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('karyawan'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Karyawan</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('formasi_jabatan'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Formasi Jabatan</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('user'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>User</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+
+
+
                 </ul>
-				<!--list menu-->
-			    
+                <!--list menu-->
+ 
             </div>
             <!-- #Menu -->
             <!-- Footer -->
             <div class="legal">
-                <div class="copyright">
-                    &copy; 2018 <a href="javascript:void(0);"> PT.Jasamarga (Persero) </a>
+                <div class="copyright"> 
+                    &copy; 2019 <a href="javascript:void(0);"> LLDIKTI Wilayah III </a> 
                 </div>
             </div>
             <!-- #Footer -->
         </aside>
         <!-- #END# Left Sidebar -->
         <!-- Right Sidebar -->
-        <aside id="rightsidebar" class="right-sidebar">
-      
+        <aside id="rightsidebar" class="right-sidebar"> 
             <div class="tab-content">
-             
-                    <div class="demo-settings">
-                        <p> Hai <?php echo $this->session->userdata('username') . " !"; ?> </p>
-                        <ul class="demo-choose-skin">
-                       
-                         <a href="<?php echo base_url('login/logout'); ?>">
-                        <li>
-                          
-                           <i class="material-icons">power_settings_new</i>
-                            <span>Keluar</span>
-                         
-                        </li>
-                          </a>
-                       
-                        </ul>
-                    </div>
-                
+
+                <div class="demo-settings">
+                    <p> Hai <?php echo $this->session->userdata('username') . " !"; ?> </p>
+                    <ul class="demo-choose-skin">
+
+                        <a href="<?php echo base_url('login/logout'); ?>">
+                            <li>
+
+                                <i class="material-icons">power_settings_new</i>
+                                <span>Keluar</span>
+
+                            </li>
+                        </a>
+
+                    </ul>
+                </div>
+ 
             </div>
         </aside>
         <!-- #END# Right Sidebar -->
         <!-- #END# Right Sidebar -->
     </section>
-
-	<?php 
-	echo $this->load->view($konten);
-	?>
-  
-  
-
  
+    <?php
+    echo $this->load->view($konten);
+    ?> 
 </body>
 
 </html>
