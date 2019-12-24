@@ -1,11 +1,13 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
- 
-class Parent_Controller extends CI_Controller {
+defined('BASEPATH') or exit('No direct script access allowed');
 
-	 
-	public function __construct(){
-		parent::__construct(); 
-		$this->data['judul'] = 'Aplikasi Monitoring Formasi Jabatan PT.Jasamarga Tollroad Operator ';
+class Parent_Controller extends CI_Controller
+{
+
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->data['judul'] = 'Aplikasi Pengarsipan Surat Masuk & Keluar LLDIKTI WILAYAH III';
 	}
 }
