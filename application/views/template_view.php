@@ -153,63 +153,21 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="<?php echo base_url('direktur'); ?>">
+                                <a href="<?php echo base_url('pegawai'); ?>">
                                     <i class="material-icons">dns</i>
-                                    <span>Direktur</span>
+                                    <span>Pegawai</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url('direktorat'); ?>">
+                                <a href="<?php echo base_url('jabatan'); ?>">
                                     <i class="material-icons">dns</i>
-                                    <span>Direktorat</span>
+                                    <span>Jabatan</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url('divisi'); ?>">
+                                <a href="<?php echo base_url('jenis_surat'); ?>">
                                     <i class="material-icons">dns</i>
-                                    <span>Divisi</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('departemen'); ?>">
-                                    <i class="material-icons">dns</i>
-                                    <span>Departemen</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('seksi'); ?>">
-                                    <i class="material-icons">dns</i>
-                                    <span>Seksi</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('kelas_jabatan'); ?>">
-                                    <i class="material-icons">dns</i>
-                                    <span>Kelas Jabatan</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('kelompok_jabatan'); ?>">
-                                    <i class="material-icons">dns</i>
-                                    <span>Kelompok Jabatan</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('lokasi'); ?>">
-                                    <i class="material-icons">dns</i>
-                                    <span>Lokasi</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('karyawan'); ?>">
-                                    <i class="material-icons">dns</i>
-                                    <span>Karyawan</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('formasi_jabatan'); ?>">
-                                    <i class="material-icons">dns</i>
-                                    <span>Formasi Jabatan</span>
+                                    <span>Jenis Surat</span>
                                 </a>
                             </li>
                             <li>
@@ -230,76 +188,40 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="<?php echo base_url('direktur'); ?>">
+                                <a href="<?php echo base_url('surat_masuk'); ?>">
                                     <i class="material-icons">dns</i>
-                                    <span>Direktur</span>
+                                    <span>Surat Masuk</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url('direktorat'); ?>">
+                                <a href="<?php echo base_url('surat_keluar'); ?>">
                                     <i class="material-icons">dns</i>
-                                    <span>Direktorat</span>
+                                    <span>Surat Keluar</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="<?php echo base_url('divisi'); ?>">
-                                    <i class="material-icons">dns</i>
-                                    <span>Divisi</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('departemen'); ?>">
-                                    <i class="material-icons">dns</i>
-                                    <span>Departemen</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('seksi'); ?>">
-                                    <i class="material-icons">dns</i>
-                                    <span>Seksi</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('kelas_jabatan'); ?>">
-                                    <i class="material-icons">dns</i>
-                                    <span>Kelas Jabatan</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('kelompok_jabatan'); ?>">
-                                    <i class="material-icons">dns</i>
-                                    <span>Kelompok Jabatan</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('lokasi'); ?>">
-                                    <i class="material-icons">dns</i>
-                                    <span>Lokasi</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('karyawan'); ?>">
-                                    <i class="material-icons">dns</i>
-                                    <span>Karyawan</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('formasi_jabatan'); ?>">
-                                    <i class="material-icons">dns</i>
-                                    <span>Formasi Jabatan</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('user'); ?>">
-                                    <i class="material-icons">dns</i>
-                                    <span>User</span>
-                                </a>
-                            </li>
-
                         </ul>
                     </li>
-
-
+                    <li class="header">Laporan</li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">dns</i>
+                            <span>Laporan</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?php echo base_url('report_surat_masuk'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Surat Masuk</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url('report_surat_keluar'); ?>">
+                                    <i class="material-icons">dns</i>
+                                    <span>Surat Keluar</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
 
                 </ul>
