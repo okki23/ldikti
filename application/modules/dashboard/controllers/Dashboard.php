@@ -1,4 +1,5 @@
 <?php
+ 
 defined('BASEPATH') or exit('No direct script access allowed');
 
 
@@ -19,5 +20,5 @@ class Dashboard extends Parent_Controller
 		$data['judul'] = $this->data['judul'];
 		$data['konten'] = 'dashboard/dashboard_view';
 		$this->load->view('template_view', $data);
-	}
+	} 
 }
