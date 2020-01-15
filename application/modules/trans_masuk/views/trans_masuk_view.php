@@ -9,7 +9,7 @@
                  <div class="card">
                      <div class="header">
                          <h2>
-                             Manajemen User
+                             Manajemen Surat Masuk
                          </h2>
                          <br>
                          <a href="javascript:void(0);" id="addmodal" class="btn btn-primary waves-effect"> <i class="material-icons">add_circle</i> Tambah Data </a>
@@ -23,7 +23,7 @@
                                  <thead>
                                      <tr>
                                          <th style="width:5%;">No</th>
-                                         <th style="width:5%;">Username</th>
+                                         <th style="width:5%;">trans_masukname</th>
                                          <th style="width:5%;">Pegawai</th>
                                          <th style="width:10%;">Opsi</th>
                                      </tr>
@@ -49,7 +49,7 @@
                  <h4 class="modal-title" id="defaultModalLabel">Form Tambah Data</h4>
              </div>
              <div class="modal-body">
-                 <form method="post" id="user_form" enctype="multipart/form-data">
+                 <form method="post" id="trans_masuk_form" enctype="multipart/form-data">
 
                      <input type="hidden" name="id" id="id">
                      <div class="input-group">
@@ -64,7 +64,7 @@
                      </div>
                      <div class="form-group">
                          <div class="form-line">
-                             <input type="text" name="username" id="username" class="form-control" placeholder="Username" />
+                             <input type="text" name="trans_masukname" id="trans_masukname" class="form-control" placeholder="trans_masukname" />
                          </div>
                      </div>
                      <div class="form-group">
@@ -125,14 +125,14 @@
          $("#defaultModal").modal('show');
 
          $.ajax({
-             url: "<?php echo base_url(); ?>user/get_data_edit/" + id,
+             url: "<?php echo base_url(); ?>trans_masuk/get_data_edit/" + id,
              type: "GET",
              dataType: "JSON",
              success: function(result) {
                  $("#defaultModal").modal('show');
                  $("#id").val(result.id);
 
-                 $("#username").val(result.username);
+                 $("#trans_masukname").val(result.trans_masukname);
                  $("#id_pegawai").val(result.id_pegawai);
                  $("#nama").val(result.nama);
 
@@ -154,7 +154,7 @@
      }
 
      $('#daftar_pegawai').DataTable({
-         "ajax": "<?php echo base_url(); ?>user/fetch_pegawai"
+         "ajax": "<?php echo base_url(); ?>trans_masuk/fetch_pegawai"
      });
 
      var daftar_pegawai = $('#daftar_pegawai').DataTable();
@@ -174,7 +174,7 @@
          if (confirm('Anda yakin ingin menghapus data ini?')) {
              // ajax delete data to database
              $.ajax({
-                 url: "<?php echo base_url('user/hapus_data') ?>/" + id,
+                 url: "<?php echo base_url('trans_masuk/hapus_data') ?>/" + id,
                  type: "GET",
                  dataType: "JSON",
                  success: function(data) {
@@ -203,24 +203,24 @@
 
      function Simpan_Data() {
          //setting semua data dalam form dijadikan 1 variabel 
-         var formData = new FormData($('#user_form')[0]);
+         var formData = new FormData($('#trans_masuk_form')[0]);
 
 
          //validasi form sebelum submit ke controller
-         var username = $("#username").val();
+         var trans_masukname = $("#trans_masukname").val();
 
 
 
-         if (username == '') {
-             alert("Username Belum anda masukkan!");
-             $("#username").parents('.form-line').addClass('focused error');
-             $("#username").focus();
+         if (trans_masukname == '') {
+             alert("trans_masukname Belum anda masukkan!");
+             $("#trans_masukname").parents('.form-line').addClass('focused error');
+             $("#trans_masukname").focus();
 
          } else {
 
              //transaksi dibelakang layar
              $.ajax({
-                 url: "<?php echo base_url(); ?>user/simpan_data_user",
+                 url: "<?php echo base_url(); ?>trans_masuk/simpan_data_trans_masuk",
                  type: "POST",
                  data: formData,
                  contentType: false,
@@ -229,7 +229,7 @@
 
                      $("#defaultModal").modal('hide');
                      $('#example').DataTable().ajax.reload();
-                     $('#user_form')[0].reset();
+                     $('#trans_masuk_form')[0].reset();
 
                      $.notify("Data berhasil disimpan!", {
                          animate: {
@@ -269,7 +269,7 @@
 
 
          $('#example').DataTable({
-             "ajax": "<?php echo base_url(); ?>user/fetch_user"
+             "ajax": "<?php echo base_url(); ?>trans_masuk/fetch_trans_masuk"
          });
 
 

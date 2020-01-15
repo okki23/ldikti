@@ -1,5 +1,5 @@
 <section class="content">
- 
+
     <div class="container-fluid">
         <div class="block-header">
 
@@ -17,7 +17,7 @@
 
                         <div class="body">
 
-                            defrgrg
+                            Selamat Datang Di Sistem Aplikasi Pengarsipan Surat Masuk & Keluar LLDIKTI WILAYAH III
 
                         </div>
 
@@ -33,14 +33,14 @@
 
     </div>
 </section>
- 
+
 <script src="http://code.highcharts.com/highcharts.js"></script>
 
 <script type="text/javascript" src="<?php echo base_url('assets/'); ?>grouped-categories.js"></script>
 
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/'); ?>html2canvas.js"></script>
- 
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 <link rel="stylesheet" href="<?php echo base_url('assets/orgchart/'); ?>org_new.css">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/'); ?>css_chart.css">
