@@ -2,17 +2,17 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 
-class Trans_masuk extends Parent_Controller
+class trans_keluar extends Parent_Controller
 {
 
-	var $nama_tabel = 't_surat_masuk';
-	var $daftar_field = array('id','id_jenis_surat','no_surat','pengirim','alamat_pengirim','telp_pengirim','tanggal_masuk','pic','disposisi','file','date_insert');
+	var $nama_tabel = 't_surat_keluar'; 
+	var $daftar_field = array('id','id_jenis_surat','no_surat','tanggal_keluar','pic','file','date_update');
 	var $primary_key = 'id';
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('m_trans_masuk');
+		$this->load->model('m_trans_keluar');
 		if (!$this->session->userdata('username')) {
 			echo "<script language=javascript>
 				 alert('Anda tidak berhak mengakses halaman ini!');
@@ -25,7 +25,7 @@ class Trans_masuk extends Parent_Controller
 	public function index()
 	{
 		$data['judul'] = $this->data['judul'];
-		$data['konten'] = 'trans_masuk/trans_masuk_view';
+		$data['konten'] = 'trans_keluar/trans_keluar_view';
 		$this->load->view('template_view', $data);
 	}
 	
@@ -47,7 +47,7 @@ class Trans_masuk extends Parent_Controller
 		echo $this->transaksi_id($params); 
 		$dataid = $this->transaksi_id($params); 
 		//store
-		$sql = "insert into t_surat_masuk (no_surat) values ('".$this->transaksi_id($params)."')";
+		$sql = "insert into t_surat_keluar (no_surat) values ('".$this->transaksi_id($params)."')";
 		$this->db->query($sql); 
 	}
 
@@ -55,12 +55,12 @@ class Trans_masuk extends Parent_Controller
 		$no_surat = $this->input->post('no_surat');
 		echo $no_surat;
    
-		$this->db->query("delete from t_surat_masuk where no_surat = '".$no_surat."' ");
+		$this->db->query("delete from t_surat_keluar where no_surat = '".$no_surat."' ");
   
 	  }
 
 	public function transaksi_id($param = '') {
-        $data = $this->m_trans_masuk->get_no();
+        $data = $this->m_trans_keluar->get_no();
         $lastid = $data->row();
         $idnya = $lastid->id;
 
@@ -92,27 +92,27 @@ class Trans_masuk extends Parent_Controller
 
 
 
-	public function fetch_trans_masuk()
+	public function fetch_trans_keluar()
 	{
-		$getdata = $this->m_trans_masuk->fetch_trans_masuk();
+		$getdata = $this->m_trans_keluar->fetch_trans_keluar();
 		echo json_encode($getdata);
 	}
 
 	public function fetch_pegawai()
 	{
-		$getdata = $this->m_trans_masuk->fetch_pegawai();
+		$getdata = $this->m_trans_keluar->fetch_pegawai();
 		echo json_encode($getdata);
 	}
 
 	public function fetch_jenis_surat()
 	{
-		$getdata = $this->m_trans_masuk->fetch_jenis_surat();
+		$getdata = $this->m_trans_keluar->fetch_jenis_surat();
 		echo json_encode($getdata);
 	}
 	public function get_data_edit()
 	{
 		$no_surat = $this->uri->segment(3);
-		$get = $this->db->query("select a.*,b.jenis_surat,c.nama as disposisiname,c.nip as disposisinip,d.nama_jabatan as disposisijabatan,d.eselon as disposisieselon from t_surat_masuk a
+		$get = $this->db->query("select a.*,b.jenis_surat,c.nama as disposisiname,c.nip as disposisinip,d.nama_jabatan as disposisijabatan,d.eselon as disposisieselon from t_surat_keluar a
 		left join m_jenis_surat b on b.id = a.id_jenis_surat
 		left join m_pegawai c on c.id = a.disposisi 
 		left join m_jabatan d on d.id = c.id_jabatan WHERE a.no_surat = '" . $no_surat . "' ")->row();
@@ -141,10 +141,10 @@ class Trans_masuk extends Parent_Controller
 		echo json_encode($result, TRUE);
 	}
 
-	public function simpan_data_trans_masuk()
+	public function simpan_data_trans_keluar()
 	{
-		$data_form = $this->m_trans_masuk->array_from_post(array('id','id_jenis_surat','no_surat','pengirim','alamat_pengirim','telp_pengirim','tanggal_masuk','pic','disposisi','file','date_insert'));
-		$id = $data_form['id'];
-		return $this->db->query("update t_surat_masuk set id_jenis_surat = '" . $data_form['id_jenis_surat'] . "', pengirim = '" . $data_form['pengirim'] . "',alamat_pengirim = '" . $data_form['alamat_pengirim'] . "',telp_pengirim = '" . $data_form['telp_pengirim'] . "', tanggal_masuk = '" . $data_form['tanggal_masuk'] . "', pic = '" . $this->session->userdata('username'). "', disposisi = '" . $data_form['disposisi']. "', file = '" . str_replace(" ","_",$data_form['file']). "', date_update = now() where no_surat = '" . $data_form['no_surat']."' ");
+		$data_form = $this->m_trans_keluar->array_from_post(array('id','id_jenis_surat','no_surat','tanggal_masuk','pic','disposisi','file','date_insert'));
+		$id = $data_form['id']; 
+		return $this->db->query("update t_surat_keluar set id_jenis_surat = '" . $data_form['id_jenis_surat'] . "', tanggal_masuk = '" . $data_form['tanggal_masuk'] . "', pic = '" . $this->session->userdata('username'). "', disposisi = '" . $data_form['disposisi']. "', file = '" . str_replace(" ","_",$data_form['file']). "', date_update = now() where no_surat = '" . $data_form['no_surat']."' ");
 	}
 }

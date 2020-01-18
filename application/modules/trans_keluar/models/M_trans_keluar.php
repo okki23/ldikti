@@ -2,32 +2,31 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 
-class M_trans_masuk extends Parent_Model
+class M_trans_keluar extends Parent_Model
 {
 
-   var $nama_tabel = 't_surat_masuk';
-	var $daftar_field = array('id','id_jenis_surat','no_surat','pengirim','alamat_pengirim','telp_pengirim','tanggal_masuk','pic','disposisi','file','date_insert');
-	var $primary_key = 'id';
+   var $nama_tabel = 't_surat_keluar'; 
+	var $daftar_field = array('id','id_jenis_surat','no_surat','tanggal_keluar','pic','file','date_update');
+   var $primary_key = 'id';
+   
    public function __construct()
    {
       parent::__construct();
       $this->load->database();
    }
-   public function fetch_trans_masuk()
+   public function fetch_trans_keluar()
    {
-      $getdata = $this->db->query("select a.*,b.jenis_surat,c.nama as picname,d.nip,d.nama as pdisposisi,e.nama_jabatan,e.eselon from t_surat_masuk a
+      $getdata = $this->db->query("select a.*,b.jenis_surat,c.nama as picname,e.nama_jabatan,e.eselon from t_surat_keluar a
       left join m_jenis_surat b on b.id = a.id_jenis_surat
-      LEFT JOIN m_pegawai c on c.id = a.pic
-      LEFT JOIN m_pegawai d on d.id = a.disposisi
+      LEFT JOIN m_pegawai c on c.id = a.pic 
       LEFT JOIN m_jabatan e on e.id = d.id_jabatan")->result();
       $data = array();
       $no = 1;
       foreach ($getdata as $row) {
          $sub_array = array(); 
          $sub_array[] = $row->no_surat;
-         $sub_array[] = tanggalan($row->tanggal_masuk);
-         $sub_array[] = $row->jenis_surat;
-         $sub_array[] = $row->nip.' - '.$row->pdisposisi.' - '.$row->nama_jabatan.' - '.$row->eselon;
+         $sub_array[] = tanggalan($row->tanggal_keluar);
+         $sub_array[] = $row->jenis_surat; 
 
 
 
@@ -86,7 +85,7 @@ class M_trans_masuk extends Parent_Model
 
 
    public function get_no(){
-      $query = $this->db->query("SELECT SUBSTR(MAX(no_surat),-7) AS id  FROM t_surat_masuk"); 
+      $query = $this->db->query("SELECT SUBSTR(MAX(no_surat),-7) AS id  FROM t_surat_keluar"); 
       return $query;
    }
 }

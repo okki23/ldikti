@@ -9,7 +9,7 @@
                  <div class="card">
                      <div class="header">
                          <h2>
-                             Manajemen Surat Masuk
+                             Manajemen Surat Keluar
                          </h2>
                          <br> 
                          <a href="javascript:void(0);" id="addmodal" class="btn btn-primary waves-effect"> <i class="material-icons">add_circle</i> Tambah Data </a>
@@ -21,9 +21,8 @@
                                 <thead>
                                      <tr>
                                          <th style="width:5%;">No Surat</th>
-                                         <th style="width:5%;">Tanggal Masuk</th>
-                                         <th style="width:5%;">Jenis Surat</th>
-                                         <th style="width:5%;">Disposisi</th>
+                                         <th style="width:5%;">Tanggal Keluar</th>
+                                         <th style="width:5%;">Jenis Surat</th> 
                                          <th style="width:15%;">Opsi</th>
                                     </tr>
                                  </thead>
@@ -48,7 +47,7 @@
                  <h4 class="modal-title" id="defaultModalLabel">Form Tambah Data</h4>
              </div>
              <div class="modal-body">
-                 <form method="post" id="trans_masuk_form" enctype="multipart/form-data">
+                 <form method="post" id="trans_keluar_form" enctype="multipart/form-data">
                     <div class="form-group">
                         <div class="form-line">
                             <label> No Surat </label>
@@ -59,24 +58,6 @@
                         <div class="form-line">
                             <label> Tanggal Masuk </label>
                             <input type="text" name="tanggal_masuk" id="tanggal_masuk" class="datepicker form-control"  />
-                        </div>
-                    </div> 
-                    <div class="form-group">
-                        <div class="form-line">
-                            <label> Pengirim </label>
-                            <input type="text" name="pengirim" id="pengirim" class="form-control"  />
-                        </div>
-                    </div> 
-                    <div class="form-group">
-                        <div class="form-line">
-                            <label> Alamat Pengirim </label>
-                            <input type="text" name="alamat_pengirim" id="alamat_pengirim" class="form-control"  />
-                        </div>
-                    </div> 
-                    <div class="form-group">
-                        <div class="form-line">
-                            <label> Telp Pengirim </label>
-                            <input type="text" name="telp_pengirim" id="telp_pengirim" class="form-control"  />
                         </div>
                     </div> 
                     <div class="input-group">
@@ -219,21 +200,6 @@
                                 <td> : </td>
                                 <td> <p id="tgl_masukdtl"> </p> </td> 
                             </tr>
-
-                            <tr>
-                                <td style="font-weight:bold;"> Pengirim  </td> 
-                                <td> : </td>
-                                <td> <p id="pengirimdtl"> </p> </td>
-                                <td style="font-weight:bold;"> Alamat Pengirim</td>
-                                <td> : </td>
-                                <td> <p id="alamat_pengirimdtl"> </p> </td>
-                            </tr> 
-
-                            <tr>
-                                <td style="font-weight:bold;"> Telp Pengirim  </td> 
-                                <td> : </td>
-                                <td colspan ="4"> <p id="telp_pengirimdtl"> </p> </td> 
-                            </tr> 
                             
                             <tr>
                                 <td style="font-weight:bold;"> Jenis Surat</td>
@@ -268,6 +234,7 @@
                 </div>
     </div>
             
+
  
 <script> 
 $('.myprogress').css('width', '0');
@@ -291,7 +258,7 @@ $("#upload").on("click",function(){
 	$('.msg').html('Uploading in progress...');
 	$('#upload').attr('disabled', 'disabled');
 	$.ajax({
-		url: "<?php echo base_url('trans_masuk/saveupload'); ?>",
+		url: "<?php echo base_url('trans_keluar/saveupload'); ?>",
         dataType: 'script',
         cache: false,
         contentType: false,
@@ -324,7 +291,8 @@ $("#upload").on("click",function(){
 }); 
 </script>
 
-<script type="text/javascript">  
+ <script type="text/javascript"> 
+
      function Ubah_Data(id) {
          $("#defaultModalLabel").html("Form Ubah Data");
          $("#cancelubah").show();
@@ -333,7 +301,7 @@ $("#upload").on("click",function(){
          $("#defaultModal").modal('show');
          
          $.ajax({
-             url: "<?php echo base_url(); ?>trans_masuk/get_data_edit/" + id,
+             url: "<?php echo base_url(); ?>trans_keluar/get_data_edit/" + id,
              type: "GET",
              dataType: "JSON",
              success: function(result) {
@@ -344,9 +312,6 @@ $("#upload").on("click",function(){
                  $("#tanggal_masuk").val(result.tanggal_masuk);
                  $("#nama").val(result.disposisiname);
                  $("#disposisi").val(result.disposisi);
-                 $("#pengirim").val(result.pengirim);
-                 $("#alamat_pengirim").val(result.alamat_pengirim);
-                 $("#telp_pengirim").val(result.telp_pengirim);
                  $("#id_jenis_surat").val(result.id_jenis_surat);
                  $("#jenis_surat").val(result.jenis_surat);
                  $("#file").val(result.file);
@@ -358,7 +323,7 @@ $("#upload").on("click",function(){
     function Show_Detail(id){ 
 		$("#DetailModal").modal({backdrop: 'static', keyboard: false,show:true});  
 		$.ajax({
-			 url:"<?php echo base_url(); ?>trans_masuk/get_data_edit/"+id,
+			 url:"<?php echo base_url(); ?>trans_keluar/get_data_edit/"+id,
 			 type:"GET",
 			 dataType:"JSON", 
 			 success:function(result){   
@@ -366,18 +331,15 @@ $("#upload").on("click",function(){
                  $("#picdtl").html(result.pic);
                  $("#tgl_masukdtl").html(result.tanggal_masuk); 
                  $("#jenis_suratdtl").html(result.jenis_surat); 
-                 $("#pengirimdtl").html(result.pengirim);
-                 $("#alamat_pengirimdtl").html(result.alamat_pengirim); 
-                 $("#telp_pengirimdtl").html(result.telp_pengirim); 
                  $("#disposisidtl").html(result.disposisinip+' - '+result.disposisiname +' - '+result.disposisijabatan+ ' - '+result.disposisieselon); 
-                 $("#berkasdtl").html("<a href='upload/"+result.file+"' target='_blank' class='btn btn-primary'> <i class='material-icons'>file_copy</i>  "+result.file+"  </a>");
+                 $("#berkasdtl").html("<a href='upload/"+result.file+"' target='_blank' class='btn btn-primary btn-lg'> <i class='material-icons'>file_copy</i>File Surat </a>");
 			 }
 		 });
     }
      
      function Bersihkan_Form() {
          $(':input').val('');
-         $('#trans_masuk_form')[0].reset();
+         $('#trans_keluar_form')[0].reset();
      }
 
 
@@ -391,7 +353,7 @@ $("#upload").on("click",function(){
      }
 
      $('#daftar_pegawai').DataTable({
-         "ajax": "<?php echo base_url(); ?>trans_masuk/fetch_pegawai"
+         "ajax": "<?php echo base_url(); ?>trans_keluar/fetch_pegawai"
      });
 
      var daftar_pegawai = $('#daftar_pegawai').DataTable();
@@ -406,7 +368,8 @@ $("#upload").on("click",function(){
      });
     //pegawai disposisi
 
-    //jenis surat 
+    //jenis surat
+
     function CariJenisSurat() {
          $("#CariJenisSuratModal").modal({
              backdrop: 'static',
@@ -416,7 +379,7 @@ $("#upload").on("click",function(){
      }
 
      $('#daftar_surat').DataTable({
-         "ajax": "<?php echo base_url(); ?>trans_masuk/fetch_jenis_surat"
+         "ajax": "<?php echo base_url(); ?>trans_keluar/fetch_jenis_surat"
      });
 
      var daftar_surat = $('#daftar_surat').DataTable();
@@ -428,14 +391,17 @@ $("#upload").on("click",function(){
          $("#jenis_surat").val(content[0]);
          $("#id_jenis_surat").val(content[1]);
          $("#CariJenisSuratModal").modal('hide');
-     }); 
+     });
+ 
 
-    //jenis surat 
+    //jenis surat
+
+
      function Hapus_Data(id) {
          if (confirm('Anda yakin ingin menghapus data ini?')) {
              // ajax delete data to database
              $.ajax({
-                 url: "<?php echo base_url('trans_masuk/hapus_data') ?>/" + id,
+                 url: "<?php echo base_url('trans_keluar/hapus_data') ?>/" + id,
                  type: "GET",
                  dataType: "JSON",
                  success: function(data) {
@@ -462,7 +428,7 @@ $("#upload").on("click",function(){
 
      function Simpan_Data() {
          //setting semua data dalam form dijadikan 1 variabel 
-         var formData = new FormData($('#trans_masuk_form')[0]);  
+         var formData = new FormData($('#trans_keluar_form')[0]);  
          var tanggal_masuk = $("#tanggal_masuk").val();
          var jenis_surat = $("#jenis_surat").val();
          var nama = $("#nama").val();
@@ -476,7 +442,7 @@ $("#upload").on("click",function(){
          }else{
 
             $.ajax({
-                 url: "<?php echo base_url(); ?>trans_masuk/simpan_data_trans_masuk",
+                 url: "<?php echo base_url(); ?>trans_keluar/simpan_data_trans_keluar",
                  type: "POST",
                  data: formData,
                  contentType: false,
@@ -485,7 +451,7 @@ $("#upload").on("click",function(){
 
                      $("#defaultModal").modal('hide');
                      $('#example').DataTable().ajax.reload();
-                     $('#trans_masuk_form')[0].reset();
+                     $('#trans_keluar_form')[0].reset();
                      $('.myprogress').text('0%');
 					 $('.myprogress').css('width', 0 + '%');
 
@@ -527,7 +493,7 @@ $("#upload").on("click",function(){
                     show: true
                 }); 
                 $.ajax({
-                    url:"<?php echo base_url('trans_masuk/get_last_id'); ?>",
+                    url:"<?php echo base_url('trans_keluar/get_last_id'); ?>",
                     type:"GET",
                     data:{id:1},
                     success:function(result){ 
@@ -539,7 +505,7 @@ $("#upload").on("click",function(){
 
 
          $('#example').DataTable({
-             "ajax": "<?php echo base_url(); ?>trans_masuk/fetch_trans_masuk",
+             "ajax": "<?php echo base_url(); ?>trans_keluar/fetch_trans_keluar",
              "destroy":true
          }); 
 
@@ -551,7 +517,7 @@ $("#upload").on("click",function(){
         if (r == true) {
             $.ajax({
                 type: "POST",
-                url: "<?php echo base_url('trans_masuk/'); ?>hapus_no_surat",
+                url: "<?php echo base_url('trans_keluar/'); ?>hapus_no_surat",
                 data: {no_surat:$("#no_surat").val()},
                 success: function(data){
                     console.log(data);
