@@ -6,8 +6,8 @@ class M_trans_masuk extends Parent_Model
 {
 
    var $nama_tabel = 't_surat_masuk';
-   var $daftar_field = array('id', 'id_jenis_surat', 'no_surat', 'tanggal_masuk', 'pic','disposisi','file','date_insert');
-   var $primary_key = 'id'; 
+	var $daftar_field = array('id','id_jenis_surat','no_surat','tanggal_masuk','pic','disposisi','file','date_insert');
+	var $primary_key = 'id';
    public function __construct()
    {
       parent::__construct();
@@ -15,19 +15,25 @@ class M_trans_masuk extends Parent_Model
    }
    public function fetch_trans_masuk()
    {
-      $getdata = $this->db->query("select a.*,b.nama from m_trans_masuk a
-LEFT JOIN m_pegawai b on b.id = a.id_pegawai")->result();
+      $getdata = $this->db->query("select a.*,b.jenis_surat,c.nama as picname,d.nip,d.nama as pdisposisi,e.nama_jabatan,e.eselon from t_surat_masuk a
+      left join m_jenis_surat b on b.id = a.id_jenis_surat
+      LEFT JOIN m_pegawai c on c.id = a.pic
+      LEFT JOIN m_pegawai d on d.id = a.disposisi
+      LEFT JOIN m_jabatan e on e.id = d.id_jabatan")->result();
       $data = array();
       $no = 1;
       foreach ($getdata as $row) {
-         $sub_array = array();
-         $sub_array[] = $no;
-         $sub_array[] = $row->trans_masukname;
-         $sub_array[] = $row->nama;
+         $sub_array = array(); 
+         $sub_array[] = $row->no_surat;
+         $sub_array[] = tanggalan($row->tanggal_masuk);
+         $sub_array[] = $row->jenis_surat;
+         $sub_array[] = $row->nip.' - '.$row->pdisposisi.' - '.$row->nama_jabatan.' - '.$row->eselon;
 
 
 
-         $sub_array[] = '<a href="javascript:void(0)" class="btn btn-warning btn-xs waves-effect" id="edit" onclick="Ubah_Data(' . $row->id . ');" > <i class="material-icons">create</i> Ubah </a>  &nbsp; <a href="javascript:void(0)" id="delete" class="btn btn-danger btn-xs waves-effect" onclick="Hapus_Data(' . $row->id . ');" > <i class="material-icons">delete</i> Hapus </a>';
+         $sub_array[] = ' <a href="javascript:void(0)" id="delete" class="btn btn-success btn-xs waves-effect" onclick="Show_Detail(' . $row->no_surat . ');" > <i class="material-icons">aspect_ratio</i> Detail </a> &nbsp;
+                           <a href="javascript:void(0)" class="btn btn-warning btn-xs waves-effect" id="edit" onclick="Ubah_Data(' . $row->no_surat . ');" > <i class="material-icons">create</i> Ubah </a>  &nbsp;
+                         <a href="javascript:void(0)" id="delete" class="btn btn-danger btn-xs waves-effect" onclick="Hapus_Data(' . $row->no_surat . ');" > <i class="material-icons">delete</i> Hapus </a>';
 
          $data[] = $sub_array;
          $no++;
@@ -57,5 +63,30 @@ LEFT JOIN m_pegawai b on b.id = a.id_pegawai")->result();
       }
 
       return $output = array("data" => $data);
+   }
+
+   public function fetch_jenis_surat()
+   { 
+      $getdata = $this->db->get('m_jenis_surat')->result();
+      $data = array();
+
+      foreach ($getdata as $row) {
+         $sub_array = array();
+
+
+         $sub_array[] = $row->jenis_surat; 
+         $sub_array[] = $row->id;
+
+
+         $data[] = $sub_array;
+      }
+
+      return $output = array("data" => $data);
+   }
+
+
+   public function get_no(){
+      $query = $this->db->query("SELECT SUBSTR(MAX(no_surat),-7) AS id  FROM t_surat_masuk"); 
+      return $query;
    }
 }

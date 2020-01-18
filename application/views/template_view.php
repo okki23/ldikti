@@ -18,6 +18,7 @@
     <!-- Waves Effect Css -->
     <link href="<?php echo base_url(); ?>assets/plugins/node-waves/waves.css" rel="stylesheet" />
 
+    <script src="<?php echo base_url(); ?>assets/css/sweetalert.css"></script>
     <link href="<?php echo base_url(); ?>assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 
 
@@ -48,7 +49,7 @@
 
     <!-- Bootstrap Core Js -->
     <script src="<?php echo base_url(); ?>assets/plugins/bootstrap/js/bootstrap.js"></script>
-
+    
     <!-- Select Plugin Js -->
     <script src="<?php echo base_url(); ?>assets/plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
@@ -87,7 +88,7 @@
     <script src="<?php echo base_url(); ?>assets/js/demo.js"></script>
 
     <script src="<?php echo base_url(); ?>assets/plugins/jquery-validation/jquery.validate.js"></script>
-
+    <script src="<?php echo base_url(); ?>assets/js/sweetalert.js"></script>
 
 </head>
 
