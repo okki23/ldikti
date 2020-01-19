@@ -1,0 +1,11 @@
+API1		192.168.10.155
+API2		192.168.10.156
+FE1			192.168.11.53
+FE2			192.168.11.54
+VPN Deploy 	192.168.11.55 (OpenVPN 1194-1195)
+CMS/Kenari	192.168.11.58
+CDN			192.168.11.57
+Cache		192.168.10.161
+Redis		r-d9jpgdc1c77v8a1yhi.redis.ap-southeast-5.rds.aliyuncs.com
+ProxyDB		eskjqxqrhthgmqg0mwp9-rw4rm.rwlb.ap-southeast-5.rds.aliyuncs.com
+Staging		192.168.10.171 (deploy 123456qwerty) (DB = devel 1n3w5)
