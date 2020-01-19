@@ -1,0 +1,50 @@
+subkanal tidak ada di menu
+
+array:2 [▼
+  "api" => "http://local.api-inews.id/v2/page-menu/kontak-kami"
+  "redis" => "v2-page-menu-kontak-kami"
+]
+
+array:2 [▼
+  "api" => "http://local.api-inews.id/v2/sitemap/channel"
+  "redis" => "v2-sitemap-channel:"
+]
+
+Sitemap
+{#613 ▼
+  +"data": array:15 [▼
+    0 => {#580 ▼
+      +"id": 33
+      +"name": "News"
+      +"slug": "news"
+      +"image": "/files/inews_new/2019/08/05/kanal_news.png"
+      +"logo": "/files/inews_new/2019/10/21/news.png"
+      +"sub_channel": array:3 [▼
+        0 => {#578 ▼
+          +"id": 49
+          +"name": "Nasional"
+          +"slug": "nasional"
+          +"channel_id": 33
+        }
+        1 => {#531 ▶}
+        2 => {#535 ▶}
+      ]
+    }
+    1 => {#540 ▶}
+    2 => {#581 ▶}
+    3 => {#584 ▶}
+    4 => {#590 ▶}
+    5 => {#594 ▶}
+    6 => {#599 ▶}
+    7 => {#605 ▶}
+    8 => {#606 ▶}
+    9 => {#607 ▶}
+    10 => {#608 ▶}
+    11 => {#609 ▶}
+    12 => {#610 ▶}
+    13 => {#611 ▶}
+    14 => {#612 ▶}
+  ]
+  +"status": {#614 ▶}
+  +"meta": {#616 ▶}
+}

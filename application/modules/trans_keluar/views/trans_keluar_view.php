@@ -56,8 +56,26 @@
                     </div> 
                     <div class="form-group">
                         <div class="form-line">
-                            <label> Tanggal Masuk </label>
-                            <input type="text" name="tanggal_masuk" id="tanggal_masuk" class="datepicker form-control"  />
+                            <label> Tanggal Keluar </label>
+                            <input type="text" name="tanggal_keluar" id="tanggal_keluar" class="datepicker form-control"  />
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <div class="form-line">
+                            <label> Penerima </label>
+                            <input type="text" name="nama_penerima" id="nama_penerima" class="form-control"  />
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <div class="form-line">
+                            <label> Alamat Penerima </label>
+                            <input type="text" name="alamat_penerima" id="alamat_penerima" class="form-control"  />
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <div class="form-line">
+                            <label> Telp Penerima </label>
+                            <input type="text" name="telp_penerima" id="telp_penerima" class="form-control"  />
                         </div>
                     </div> 
                     <div class="input-group">
@@ -71,17 +89,7 @@
                          </span>
                      </div>
                     
-                    <div class="input-group">
-                         <div class="form-line">
-                             <input type="text" name="nama" id="nama" class="form-control" required readonly="readonly">
-                             <input type="hidden" name="disposisi" id="disposisi" required readonly="readonly">
-
-                         </div>
-                         <span class="input-group-addon">
-                             <button type="button" onclick="CariPegawai();" class="btn btn-primary"> Disposisi ... </button>
-                         </span>
-                     </div>
-
+                   
                      <div class="form-group">
                         <div class="form-line">
                             <label> File Surat Masuk </label> 
@@ -196,19 +204,17 @@
                                 <td> : </td>
                                 <td> <p id="no_suratdtl"> </p> </td>
                                 
-                                <td style="font-weight:bold;"> Tanggal Masuk</td>
+                                <td style="font-weight:bold;"> Tanggal Keluar</td>
                                 <td> : </td>
-                                <td> <p id="tgl_masukdtl"> </p> </td> 
+                                <td> <p id="tgl_keluardtl"> </p> </td> 
                             </tr>
                             
                             <tr>
                                 <td style="font-weight:bold;"> Jenis Surat</td>
                                 <td> : </td>
-                                <td> <p id="jenis_suratdtl"> </p> </td>
+                                <td colspan="4"> <p id="jenis_suratdtl"> </p> </td>
                                 
-                                <td style="font-weight:bold;"> Disposisi</td>
-                                <td> : </td>
-                                <td> <p id="disposisidtl"> </p> </td> 
+                            
                             </tr> 
                             
                             <tr>
@@ -219,7 +225,24 @@
                                 <td> : </td>
                                 <td> <p id="berkasdtl"> </p> </td>
                             </tr> 
-                             
+                            
+                            <tr>
+                                <td style="font-weight:bold;"> Penerima</td>
+                                <td> : </td>
+                                <td> <p id="nama_penerimadtl"> </p> </td>
+                                
+                                <td style="font-weight:bold;"> Alamat Penerima</td>
+                                <td> : </td>
+                                <td> <p id="alamat_penerimadtl"> </p> </td> 
+                            </tr>
+                            
+                            <tr>
+                                <td style="font-weight:bold;"> Telp Penerima</td>
+                                <td> : </td>
+                                <td colspan="4"> <p id="telp_penerimadtl"> </p> </td>
+                                
+                            
+                            </tr> 
                             </table> 
   
                         </div> 
@@ -309,9 +332,10 @@ $("#upload").on("click",function(){
                  $("#suratx").html("<br> <hr> File Sebelumnya : <a href='upload/"+result.file+"' target='_blank' class='btn btn-primary'> <i class='material-icons'>file_copy</i> "+result.file+" </a> <br> <hr>");
                  $("#id").val(result.id); 
                  $("#no_surat").val(result.no_surat);
-                 $("#tanggal_masuk").val(result.tanggal_masuk);
-                 $("#nama").val(result.disposisiname);
-                 $("#disposisi").val(result.disposisi);
+                 $("#tanggal_keluar").val(result.tanggal_keluar);
+                 $("#nama_penerima").val(result.nama_penerima);
+                 $("#alamat_penerima").val(result.alamat_penerima);
+                 $("#telp_penerima").val(result.telp_penerima); 
                  $("#id_jenis_surat").val(result.id_jenis_surat);
                  $("#jenis_surat").val(result.jenis_surat);
                  $("#file").val(result.file);
@@ -329,10 +353,12 @@ $("#upload").on("click",function(){
 			 success:function(result){   
                  $("#no_suratdtl").html(result.no_surat);
                  $("#picdtl").html(result.pic);
-                 $("#tgl_masukdtl").html(result.tanggal_masuk); 
+                 $("#tgl_keluardtl").html(result.tanggal_keluar); 
                  $("#jenis_suratdtl").html(result.jenis_surat); 
-                 $("#disposisidtl").html(result.disposisinip+' - '+result.disposisiname +' - '+result.disposisijabatan+ ' - '+result.disposisieselon); 
-                 $("#berkasdtl").html("<a href='upload/"+result.file+"' target='_blank' class='btn btn-primary btn-lg'> <i class='material-icons'>file_copy</i>File Surat </a>");
+                 $("#nama_penerimadtl").html(result.nama_penerima);
+                 $("#alamat_penerimadtl").html(result.alamat_penerima); 
+                 $("#telp_penerimadtl").html(result.telp_penerima);  
+                 $("#berkasdtl").html("<a href='upload/"+result.file+"' target='_blank' class='btn btn-primary btn-lg'> <i class='material-icons'>file_copy</i> "+result.file+" </a>");
 			 }
 		 });
     }
@@ -429,16 +455,23 @@ $("#upload").on("click",function(){
      function Simpan_Data() {
          //setting semua data dalam form dijadikan 1 variabel 
          var formData = new FormData($('#trans_keluar_form')[0]);  
-         var tanggal_masuk = $("#tanggal_masuk").val();
+         var tanggal_keluar = $("#tanggal_keluar").val();
          var jenis_surat = $("#jenis_surat").val();
          var nama = $("#nama").val();
+         var nama_penerima = $("#nama_penerima").val();
+         var alamat_penerima = $("#alamat_penerima").val();
+         var telp_penerima = $("#telp_penerima").val();
 
-         if(tanggal_masuk == ''){
-            alert('tanggal surat masuk belum ditentukan!'); 
+         if(tanggal_keluar == ''){
+            alert('tanggal surat keluar belum ditentukan!'); 
          }else if(jenis_surat == ''){   
-            alert('jenis surat masuk belum ditentukan!'); 
-         }else if(nama == ''){
-            alert('disposisi surat masuk belum ditentukan!'); 
+            alert('jenis surat keluar belum ditentukan!');  
+        }else if(nama_penerima == ''){
+            alert('nama penerima surat belum ditentukan!'); 
+         }else if(alamat_penerima == ''){   
+            alert('alamat penerima surat belum ditentukan!'); 
+         }else if(telp_penerima == ''){
+            alert('telp penerima surat belum ditentukan!'); 
          }else{
 
             $.ajax({

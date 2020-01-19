@@ -6,7 +6,7 @@ class trans_keluar extends Parent_Controller
 {
 
 	var $nama_tabel = 't_surat_keluar'; 
-	var $daftar_field = array('id','id_jenis_surat','no_surat','tanggal_keluar','pic','file','date_update');
+	var $daftar_field = array('id',	'id_jenis_surat','no_surat','nama_penerima','alamat_penerima','telp_penerima','tanggal_keluar','pic','file','date_update');
 	var $primary_key = 'id';
 
 	public function __construct()
@@ -112,10 +112,8 @@ class trans_keluar extends Parent_Controller
 	public function get_data_edit()
 	{
 		$no_surat = $this->uri->segment(3);
-		$get = $this->db->query("select a.*,b.jenis_surat,c.nama as disposisiname,c.nip as disposisinip,d.nama_jabatan as disposisijabatan,d.eselon as disposisieselon from t_surat_keluar a
-		left join m_jenis_surat b on b.id = a.id_jenis_surat
-		left join m_pegawai c on c.id = a.disposisi 
-		left join m_jabatan d on d.id = c.id_jabatan WHERE a.no_surat = '" . $no_surat . "' ")->row();
+		$get = $this->db->query("select a.*,b.jenis_surat from t_surat_keluar a
+		left join m_jenis_surat b on b.id = a.id_jenis_surat WHERE a.no_surat = '" . $no_surat . "' ")->row();
 		echo json_encode($get, TRUE);
 	}
 
@@ -143,8 +141,8 @@ class trans_keluar extends Parent_Controller
 
 	public function simpan_data_trans_keluar()
 	{
-		$data_form = $this->m_trans_keluar->array_from_post(array('id','id_jenis_surat','no_surat','tanggal_masuk','pic','disposisi','file','date_insert'));
+		$data_form = $this->m_trans_keluar->array_from_post(array('id',	'id_jenis_surat','no_surat','nama_penerima','alamat_penerima','telp_penerima','tanggal_keluar','pic','file','date_update'));
 		$id = $data_form['id']; 
-		return $this->db->query("update t_surat_keluar set id_jenis_surat = '" . $data_form['id_jenis_surat'] . "', tanggal_masuk = '" . $data_form['tanggal_masuk'] . "', pic = '" . $this->session->userdata('username'). "', disposisi = '" . $data_form['disposisi']. "', file = '" . str_replace(" ","_",$data_form['file']). "', date_update = now() where no_surat = '" . $data_form['no_surat']."' ");
+		return $this->db->query("update t_surat_keluar set id_jenis_surat = '" . $data_form['id_jenis_surat'] . "', tanggal_keluar = '" . $data_form['tanggal_keluar'] . "',nama_penerima = '" . $data_form['nama_penerima'] . "',alamat_penerima = '" . $data_form['alamat_penerima'] . "',telp_penerima = '" . $data_form['telp_penerima'] . "', pic = '" . $this->session->userdata('username'). "', file = '" . str_replace(" ","_",$data_form['file']). "', date_update = now() where no_surat = '" . $data_form['no_surat']."' ");
 	}
 }

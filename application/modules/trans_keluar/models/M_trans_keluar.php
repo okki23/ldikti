@@ -6,8 +6,8 @@ class M_trans_keluar extends Parent_Model
 {
 
    var $nama_tabel = 't_surat_keluar'; 
-	var $daftar_field = array('id','id_jenis_surat','no_surat','tanggal_keluar','pic','file','date_update');
-   var $primary_key = 'id';
+	var $daftar_field = array('id','id_jenis_surat','no_surat','nama_penerima','alamat_penerima','telp_penerima','tanggal_keluar','pic','file','date_update');
+	var $primary_key = 'id';
    
    public function __construct()
    {
@@ -16,10 +16,8 @@ class M_trans_keluar extends Parent_Model
    }
    public function fetch_trans_keluar()
    {
-      $getdata = $this->db->query("select a.*,b.jenis_surat,c.nama as picname,e.nama_jabatan,e.eselon from t_surat_keluar a
-      left join m_jenis_surat b on b.id = a.id_jenis_surat
-      LEFT JOIN m_pegawai c on c.id = a.pic 
-      LEFT JOIN m_jabatan e on e.id = d.id_jabatan")->result();
+      $getdata = $this->db->query("select a.*,b.jenis_surat from t_surat_keluar a
+      left join m_jenis_surat b on b.id = a.id_jenis_surat")->result();
       $data = array();
       $no = 1;
       foreach ($getdata as $row) {

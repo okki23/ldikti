@@ -465,7 +465,10 @@ $("#upload").on("click",function(){
          var formData = new FormData($('#trans_masuk_form')[0]);  
          var tanggal_masuk = $("#tanggal_masuk").val();
          var jenis_surat = $("#jenis_surat").val();
-         var nama = $("#nama").val();
+         var nama = $("#nama").val(); 
+         var pengirim = $("#pengirim").val();
+         var alamat_pengirim = $("#alamat_pengirim").val();
+         var telp_pengirim= $("#telp_pengirim").val();
 
          if(tanggal_masuk == ''){
             alert('tanggal surat masuk belum ditentukan!'); 
@@ -473,6 +476,12 @@ $("#upload").on("click",function(){
             alert('jenis surat masuk belum ditentukan!'); 
          }else if(nama == ''){
             alert('disposisi surat masuk belum ditentukan!'); 
+        }else if(pengirim == ''){
+            alert('pengirim surat masuk belum ditentukan!'); 
+         }else if(alamat_pengirim == ''){   
+            alert('alamat pengirim surat masuk belum ditentukan!'); 
+         }else if(telp_pengirim == ''){
+            alert('telp pengirim surat masuk belum ditentukan!');  
          }else{
 
             $.ajax({
