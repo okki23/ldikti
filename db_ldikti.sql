@@ -11,7 +11,7 @@
  Target Server Version : 100411
  File Encoding         : 65001
 
- Date: 19/01/2020 09:52:58
+ Date: 19/01/2020 12:11:04
 */
 
 SET NAMES utf8mb4;
@@ -112,12 +112,13 @@ CREATE TABLE `t_surat_keluar`  (
   `file` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `date_update` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_surat_keluar
 -- ----------------------------
 INSERT INTO `t_surat_keluar` VALUES (1, 2, '202001190000001', 'OkkiS', 'Bekasi D', '02174353499', '2020-01-28', 'suparman', 'note_15jan2020.txt', '2020-01-19 09:15:07');
+INSERT INTO `t_surat_keluar` VALUES (4, 2, '202001190000002', 'Paijo', 'Jawa Tengah', '021324531', '2020-01-26', 'suparman', 'node_alibaba', '2020-01-19 11:23:38');
 
 -- ----------------------------
 -- Table structure for t_surat_masuk
@@ -136,11 +137,12 @@ CREATE TABLE `t_surat_masuk`  (
   `file` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `date_update` datetime(0) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_surat_masuk
 -- ----------------------------
 INSERT INTO `t_surat_masuk` VALUES (3, 1, '202001190000001', 'Okki SS', 'Jl', '02189345', '2020-01-19', 'suparman', 2, 'stg', '2020-01-19 09:22:06');
+INSERT INTO `t_surat_masuk` VALUES (4, 1, '202001190000002', 'Suparman', 'Jakarta Timur', '02149304534', '2020-01-20', 'suparman', 1, 'akun_fb_baru.txt', '2020-01-19 11:22:24');
 
 SET FOREIGN_KEY_CHECKS = 1;

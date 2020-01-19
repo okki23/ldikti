@@ -22,11 +22,9 @@
 
                                  <thead>
                                      <tr>
-                                         <th style="width:5%;">No</th>
-
-                                         <th style="width:5%;">Nama jabatan</th>
-
-
+                                         <th style="width:5%;">No</th> 
+                                         <th style="width:5%;">Nama jabatan</th> 
+                                         <th style="width:5%;">Eselon</th> 
                                          <th style="width:10%;">Opsi</th>
                                      </tr>
                                  </thead>
@@ -60,6 +58,11 @@
                              <input type="text" name="nama_jabatan" id="nama_jabatan" class="form-control" placeholder="Nama jabatan" />
                          </div>
                      </div>
+                     <div class="form-group">
+                         <div class="form-line">
+                             <input type="text" name="eselon" id="eselon" class="form-control" placeholder="Eselon" />
+                         </div>
+                     </div>
 
 
                      <button type="button" onclick="Simpan_Data();" class="btn btn-success waves-effect"> <i class="material-icons">save</i> Simpan</button>
@@ -82,14 +85,11 @@
              url: "<?php echo base_url(); ?>jabatan/get_data_edit/" + id,
              type: "GET",
              dataType: "JSON",
-             success: function(result) {
-
+             success: function(result) {  
                  $("#defaultModal").modal('show');
-                 $("#id").val(result.id);
-
-                 $("#nama_jabatan").val(result.nama_jabatan);
-
-
+                 $("#id").val(result.id); 
+                 $("#nama_jabatan").val(result.nama_jabatan);  
+                 $("#eselon").val(result.eselon);  
              }
          });
      }
